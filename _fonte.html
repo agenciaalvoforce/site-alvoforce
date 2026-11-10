@@ -11,6 +11,22 @@
 <meta name="theme-color" content="#1E1E1C">
 <link rel="icon" href="@@FAVICON@@">
 <link rel="stylesheet" href="marca/marca.css">
+<!-- Medição: Google (Analytics + Ads) e Pixel do Meta. Tudo começa negado até o visitante aceitar os cookies (LGPD). -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){ dataLayer.push(arguments); }
+var AF_ACEITE = null; try { AF_ACEITE = localStorage.getItem("af_cookies"); } catch(e){}
+var AF_OK = AF_ACEITE === "sim" ? "granted" : "denied";
+gtag("consent", "default", {ad_storage:AF_OK, ad_user_data:AF_OK, ad_personalization:AF_OK, analytics_storage:AF_OK, wait_for_update:500});
+gtag("js", new Date());
+gtag("config", "G-EXCCQ4KKRV");
+gtag("config", "AW-17756540974");
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");
+if (AF_OK !== "granted") fbq("consent", "revoke");
+fbq("init", "1846686749321407");
+fbq("track", "PageView");
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EXCCQ4KKRV"></script>
 <style>
 /* Conceito: convergência. Tudo parte do símbolo de 12 filetes e da jornada Descobre, Procura, Confia, Chama.
    Fundo carvão como base, faixas marfim e areia para respirar, dourado só para destaque. */
@@ -502,6 +518,12 @@ body.menu-aberto .gaveta{clip-path:circle(150% at calc(100% - 44px) 42px);visibi
 .wa.on{transform:scale(1)}
 .wa svg{width:28px;height:28px;fill:var(--carvao)}
 .wa::after{content:"";position:absolute;inset:0;border-radius:50%;box-shadow:0 0 0 0 rgba(200,167,107,.5);animation:pulso 2.6s infinite}
+.cookies{position:fixed;z-index:85;left:calc(16px + env(safe-area-inset-left,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));width:min(420px,calc(100vw - 32px));background:var(--carvao2);border:1px solid var(--fio-ouro);border-radius:22px;padding:20px;display:grid;gap:14px;box-shadow:0 20px 50px rgba(0,0,0,.45);transform:translateY(0);opacity:1;transition:transform .5s var(--ease),opacity .4s}
+.cookies.sai{transform:translateY(20px);opacity:0}
+.cookies p{font-size:14.5px;line-height:1.5;color:var(--suave)}
+.cookies p b{display:block;color:var(--marfim);font-family:var(--tit);font-size:17px;font-weight:600;margin-bottom:4px}
+.cookies .bts{display:flex;gap:8px;flex-wrap:wrap}
+.cookies .btn{padding:12px 22px;font-size:14.5px}
 .toast{position:fixed;z-index:95;left:50%;bottom:calc(96px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--marfim);color:var(--carvao);padding:12px 20px;border-radius:99px;font-size:14px;font-weight:700;opacity:0;pointer-events:none;transition:opacity .3s,transform .4s var(--ease)}
 .toast.on{opacity:1;transform:translate(-50%,0)}
 
@@ -921,12 +943,16 @@ body.menu-aberto .gaveta{clip-path:circle(150% at calc(100% - 44px) 42px);visibi
         </ul>
       </div>
     </div>
-    <div class="rod-base"><span>Estratégia e Crescimento Digital · © 2026 Alvoforce</span><span>Feito com método.</span></div>
+    <div class="rod-base"><span>Estratégia e Crescimento Digital · © 2026 Alvoforce</span><button id="ckAbrir" style="color:inherit;font-size:13px">Preferências de cookies</button></div>
   </div>
 </footer>
 
 <a class="wa" id="waFlut" data-wa href="#" aria-label="Falar no WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg></a>
 <div class="toast" id="toast">Copiado</div>
+<div class="cookies" id="cookies" role="dialog" aria-label="Aviso de cookies" hidden>
+  <p><b>Cookies</b>Usamos cookies para entender de onde vêm os visitantes e melhorar os nossos anúncios. Você escolhe.</p>
+  <div class="bts"><button class="btn" id="ckSim">Aceitar</button><button class="btn vazado" id="ckNao">Recusar</button></div>
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -954,6 +980,37 @@ $$("[data-copiar]").forEach(function(b){
   });
 });
 function selecionar(el){ var r = document.createRange(); r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r); toast("Texto selecionado. Copie com Ctrl+C"); }
+
+/* ===== Medição ===== */
+var ADS_ID = "AW-17756540974";
+var ADS_ROTULO = ""; /* rótulo da ação de conversão do Google Ads (parte depois da barra no send_to). Vazio = não dispara a conversão direta */
+function medir(nome, params, metaPadrao, metaProprio){
+  params = params || {};
+  try { if (window.gtag) gtag("event", nome, params); } catch(e){}
+  try { if (window.fbq){ if (metaPadrao) fbq("track", metaPadrao, params); if (metaProprio) fbq("trackCustom", metaProprio, params); } } catch(e){}
+}
+document.addEventListener("click", function(e){
+  var a = e.target.closest && e.target.closest('a[href*="wa.me"]'); if (!a) return;
+  var s = a.closest("section, header, footer, nav");
+  var local = a.id === "qWa" ? "teste" : a.id === "waFlut" ? "botao_flutuante" : (s && (s.id || s.className.split(" ")[0])) || "site";
+  medir("generate_lead", {local:local, metodo:"whatsapp"}, local === "teste" ? "Lead" : "Contact");
+  if (ADS_ROTULO) try { gtag("event", "conversion", {send_to:ADS_ID + "/" + ADS_ROTULO}); } catch(e2){}
+}, true);
+/* aviso de cookies */
+(function(){
+  var box = $("#cookies");
+  function escolher(sim){
+    try { localStorage.setItem("af_cookies", sim ? "sim" : "nao"); } catch(e){}
+    var v = sim ? "granted" : "denied";
+    try { gtag("consent", "update", {ad_storage:v, ad_user_data:v, ad_personalization:v, analytics_storage:v}); } catch(e){}
+    try { fbq("consent", sim ? "grant" : "revoke"); } catch(e){}
+    box.classList.add("sai"); setTimeout(function(){ box.hidden = true; box.classList.remove("sai"); }, 450);
+  }
+  $("#ckSim").addEventListener("click", function(){ escolher(true); });
+  $("#ckNao").addEventListener("click", function(){ escolher(false); });
+  $("#ckAbrir").addEventListener("click", function(){ box.hidden = false; });
+  if (window.AF_ACEITE !== "sim" && window.AF_ACEITE !== "nao") setTimeout(function(){ box.hidden = false; }, 2200);
+})();
 
 /* ===== Marca: símbolo e logo oficiais ===== */
 var SIMB_D = "@@SIMBOLO@@";
@@ -1323,7 +1380,7 @@ var nichoAtual = "";
     {n:"Educação, eventos e experiências", c:"educação ou eventos", i:"livro", ling:"Emoção e prova social", t:"O vídeo vende antes da explicação. Depoimentos e bastidores levam gente nova até a inscrição.", b:["curso de oratória","espaço para eventos"], w:[2, 2, 2, 3]}
   ];
   var chips = $("#chips"), barras = $("#nBarras");
-  NI.forEach(function(x, i){ var b = document.createElement("button"); b.className = "chip-n"; b.setAttribute("role", "tab"); b.innerHTML = '<span class="ic">' + ico(x.i) + "</span>" + x.n; b.addEventListener("click", function(){ mostrar(i); }); chips.appendChild(b); });
+  NI.forEach(function(x, i){ var b = document.createElement("button"); b.className = "chip-n"; b.setAttribute("role", "tab"); b.innerHTML = '<span class="ic">' + ico(x.i) + "</span>" + x.n; b.addEventListener("click", function(){ mostrar(i); medir("nicho_escolhido", {nicho:x.c}); }); chips.appendChild(b); });
   barras.innerHTML = CAN.map(function(c){ return '<div class="barra"><span>' + c + '</span><span class="tr"><i></i></span><em></em></div>'; }).join("");
   var bts = $$(".chip-n", chips), bars = $$(".barra", barras);
   function mostrar(i){
@@ -1367,6 +1424,7 @@ var nichoAtual = "";
       '<div class="res-acoes"><a class="btn" id="qWa" target="_blank" rel="noopener" href="#">Mandar resultado ao Ivan <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><button class="q-volta" id="qRefaz">Refazer o teste</button></div>';
     var msg = "Olá, Ivan! Fiz o teste no site da Alvoforce" + (nichoAtual ? " (segmento: " + nichoAtual + ")" : "") + ". Minha jornada ficou em " + pct + "%." + (min < 2 ? " O ponto mais fraco foi \"" + Q[fi].p + "\"." : "") + " Quero agendar o diagnóstico estratégico.";
     $("#qWa").href = linkWA(msg);
+    medir("teste_concluido", {resultado:pct, ponto_fraco:(min < 2 ? Q[fi].p : "nenhum"), nicho:(nichoAtual || "nao_informado")}, null, "TesteConcluido");
     $("#qRefaz").addEventListener("click", function(){ resp = []; cur = 0; troca(pergunta); });
     requestAnimationFrame(function(){ requestAnimationFrame(function(){
       $("#anelV").style.strokeDashoffset = C * (1 - pct / 100);
