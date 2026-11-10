@@ -16,6 +16,7 @@
 window.dataLayer = window.dataLayer || [];
 function gtag(){ dataLayer.push(arguments); }
 var AF_ACEITE = null; try { AF_ACEITE = localStorage.getItem("af_cookies"); } catch(e){}
+if (!AF_ACEITE){ var AF_M = document.cookie.match(/(?:^|; )af_cookies=(sim|nao)/); if (AF_M) AF_ACEITE = AF_M[1]; }
 var AF_OK = AF_ACEITE === "sim" ? "granted" : "denied";
 gtag("consent", "default", {ad_storage:AF_OK, ad_user_data:AF_OK, ad_personalization:AF_OK, analytics_storage:AF_OK, wait_for_update:500});
 gtag("js", new Date());
@@ -45,6 +46,7 @@ fbq("track", "PageView");
 :root[data-theme="dark"]{--carvao:#1E1E1C}
 
 *,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
 html{background:var(--carvao)}
 html.lenis,html.lenis body{height:auto}
 .lenis.lenis-smooth{scroll-behavior:auto!important}
@@ -1000,7 +1002,9 @@ document.addEventListener("click", function(e){
 (function(){
   var box = $("#cookies");
   function escolher(sim){
-    try { localStorage.setItem("af_cookies", sim ? "sim" : "nao"); } catch(e){}
+    var esc = sim ? "sim" : "nao"; window.AF_ACEITE = esc;
+    try { localStorage.setItem("af_cookies", esc); } catch(e){}
+    try { document.cookie = "af_cookies=" + esc + "; max-age=31536000; path=/; SameSite=Lax"; } catch(e){}
     var v = sim ? "granted" : "denied";
     try { gtag("consent", "update", {ad_storage:v, ad_user_data:v, ad_personalization:v, analytics_storage:v}); } catch(e){}
     try { fbq("consent", sim ? "grant" : "revoke"); } catch(e){}
